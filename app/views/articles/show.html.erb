@@ -8,4 +8,27 @@
   <%= @article.text %>
 </p>
 
+<h2>Experiments</h2>
+<% @article.experiments.each do |experiment| %>
+  <p>
+    <strong>Block Size:</strong>
+    <%= experiment.blockSize %>
+  </p>
+ 
+<% end %>
+
+
+<h2>Perform Experiment:</h2>
+
+<%= form_for([@article, @article.experiments.build]) do |f| %>
+  <p>
+    <%= f.label :blockSize %><br>
+    <%= f.text_field :blockSize %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
 <%= link_to 'Back', articles_path %>
+| <%= link_to 'Edit', edit_article_path(@article) %>

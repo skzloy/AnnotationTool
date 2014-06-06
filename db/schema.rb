@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140528143355) do
+ActiveRecord::Schema.define(version: 20140604150009) do
 
   create_table "articles", force: true do |t|
     t.string   "title"
@@ -19,5 +19,14 @@ ActiveRecord::Schema.define(version: 20140528143355) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "experiments", force: true do |t|
+    t.integer  "blockSize"
+    t.integer  "article_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "experiments", ["article_id"], name: "index_experiments_on_article_id"
 
 end
