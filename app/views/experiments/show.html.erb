@@ -1,0 +1,14 @@
+<p>
+  <strong>Article Title:</strong>
+  <%= @article.title %>
+  <strong>Block size:</strong>
+  <%= @experiment.blockSize %>
+
+  <% @experiment.blocks.each do |block| %>
+    <p>
+      <%= block %>
+    </p>
+
+<% end %>
+
+</p>

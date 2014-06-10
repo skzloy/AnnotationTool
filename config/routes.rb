@@ -2,7 +2,9 @@ Rails.application.routes.draw do
 
   resources :articles do
 	resources :experiments
-  end	
+  end
+
+  resources :experiments
 
   #get 'welcome/index'
 
