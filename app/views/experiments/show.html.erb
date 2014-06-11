@@ -3,11 +3,11 @@
   <%= @article.title %>
   <strong>Block size:</strong>
   <%= @experiment.blockSize %>
+  <p>
+    <% @blocks.each do |block| %>
+        <%= block %>
+  </p>
 
-  <% @blocks.each do |block| %>
-    <p>
-      <%= block %>
-    </p>
 
 <% end %>
 
