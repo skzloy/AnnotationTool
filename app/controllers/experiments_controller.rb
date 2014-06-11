@@ -6,7 +6,8 @@ class ExperimentsController < ApplicationController
   end
 
  def show
-   @experiment = Experiment.find(params[:id])
+   @article = Article.find(params[:article_id])
+   @experiment = @article.experiments.find(params[:id])
    @blocks = @experiment.article.text.chars.each_slice(@experiment.blockSize).map(&:join)
  end
 

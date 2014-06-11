@@ -1,10 +1,11 @@
 Rails.application.routes.draw do
 
   resources :articles do
-	resources :experiments
+	  resources :experiments
   end
 
   resources :experiments
+
 
   #get 'welcome/index'
 
