@@ -40,7 +40,7 @@ GEM
     execjs (2.2.0)
     hike (1.2.3)
     i18n (0.6.9)
-    jbuilder (2.0.8)
+    jbuilder (2.1.0)
       activesupport (>= 3.0.0, < 5)
       multi_json (~> 1.2)
     jquery-rails (3.1.0)
@@ -110,9 +110,9 @@ GEM
       coffee-rails
     tzinfo (1.2.1)
       thread_safe (~> 0.1)
-    tzinfo-data (1.2014.3)
+    tzinfo-data (1.2014.5)
       tzinfo (>= 1.0.0)
-    uglifier (2.5.0)
+    uglifier (2.5.1)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
 
@@ -121,6 +121,7 @@ PLATFORMS
 
 DEPENDENCIES
   coffee-rails (~> 4.0.0)
+  execjs
   jbuilder (~> 2.0)
   jquery-rails
   pg
