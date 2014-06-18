@@ -32,7 +32,10 @@ class ExperimentsController < ApplicationController
 
    end
    #@blocks = @experiment.article.text.chars.each_slice(@experiment.blockSize).map(&:join)
-   @word_count = get_word_count_by_blocks(@blocks)
+   word_count = get_word_count_by_blocks(@blocks)
+   sign_count = get_sign_count_by_blocks(@blocks)
+   word_count_divided_by_sign_count = word_count.zip(sign_count).map {|a| a.inject(1.0, :/)}
+   @blocks_by_word_count_divided_by_sign_count = Hash[(0..@blocks.size).to_a.zip word_count_divided_by_sign_count]
  end
 
   private
@@ -57,4 +60,12 @@ class ExperimentsController < ApplicationController
       }
       return result
     end
+
+   def get_sign_count_by_blocks(blocks)
+     result = Array.new
+     blocks.each { |block|
+       result.push(TextProcessor.sign_count(block))
+     }
+     return result
+   end
 end
