@@ -5,13 +5,105 @@
   <%= @experiment.blockSize %>
   <p>
     <% @blocks.each do |block| %>
-        <strong>{ </strong>
-        <%= block %>
+        <%= block.ID %>
+        <strong> { </strong>
+        <%= block.RawText %>
         <strong> }</strong>
     <% end %>
   </p>
 
-  <%= column_chart @blocks_by_word_count_divided_by_sign_count, :library => {:title => "Word Count divided by sign count", :width => "400px"} %>
+  <%= column_chart @blocks_by_word_count_divided_by_sign_count,
+                   :library => {:title => "Кол-во слов разделенное на кол-во знаков", :width => "400px"} %>
 
+<table border="1">
+  <caption>Есперсон - 6</caption>
+  <tr>
+    <th>Block ID</th>
+    <th>E1</th>
+    <th>E2</th>
+    <th>E3</th>
+    <th>E4</th>
+    <th>E5</th>
+    <th>E6</th>
+  </tr>
+
+  <% @blocks.each do |block| %>
+
+      <tr>
+        <td><%= block.ID %></td>
+        <td><%= block.EspChar.ESP6.E1 %></td>
+        <td><%= block.EspChar.ESP6.E2 %></td>
+        <td><%= block.EspChar.ESP6.E3 %></td>
+        <td><%= block.EspChar.ESP6.E4 %></td>
+        <td><%= block.EspChar.ESP6.E5 %></td>
+        <td><%= block.EspChar.ESP6.E6 %></td>
+      </tr>
+
+  <% end %>
+
+</table>
+
+<table border="1">
+  <caption>Есперсон - 5</caption>
+  <tr>
+    <th>Block ID</th>
+    <th>E1</th>
+    <th>E2</th>
+    <th>E3</th>
+    <th>E4</th>
+    <th>E5</th>
+  </tr>
+
+  <% @blocks.each do |block| %>
+
+      <tr>
+        <td><%= block.ID %></td>
+        <td><%= block.EspChar.ESP5.E1 %></td>
+        <td><%= block.EspChar.ESP5.E2 %></td>
+        <td><%= block.EspChar.ESP5.E3 %></td>
+        <td><%= block.EspChar.ESP5.E4 %></td>
+        <td><%= block.EspChar.ESP5.E5 %></td>
+      </tr>
+
+  <% end %>
+
+</table>
+
+<table border="1">
+  <caption>Есперсон - 3</caption>
+  <tr>
+    <th>Block ID</th>
+    <th>ESP3 - 1</th>
+    <th>ESP3 - 2</th>
+    <th>ESP3 - 3</th>
+    <th>        </th>
+    <th>ESP3_P - 1</th>
+    <th>ESP3_P - 2</th>
+    <th>ESP3_P - 3</th>
+  </tr>
+
+  <% @blocks.each do |block| %>
+
+      <tr>
+        <td><%= block.ID %></td>
+        <td><%= block.EspChar.ESP3.E1 %></td>
+        <td><%= block.EspChar.ESP3.E2 %></td>
+        <td><%= block.EspChar.ESP3.E3 %></td>
+        <td>                            </td>
+        <td><%= block.EspChar.ESP3.EP1 %></td>
+        <td><%= block.EspChar.ESP3.EP2 %></td>
+        <td><%= block.EspChar.ESP3.EP3 %></td>
+      </tr>
+
+  <% end %>
+
+</table>
+
+
+<%= column_chart [{name: 'E1', data:Hash[(0..@blocks.size).to_a.zip @blocks.map{|block| block.EspChar.ESP3.E1}]} ,{name: 'E2', data:Hash[(0..@blocks.size).to_a.zip @blocks.map{|block| block.EspChar.ESP3.E2}]} ,{name: 'E3', data:Hash[(0..@blocks.size).to_a.zip @blocks.map{|block| block.EspChar.ESP3.E3}]}],
+    :library => {:title => "Есперсон - 3", :width => "400px"} %>
+
+<%= column_chart [{name: 'EP1', data:Hash[(0..@blocks.size).to_a.zip @blocks.map{|block| block.EspChar.ESP3.EP1}]} ,{name: 'EP2', data:Hash[(0..@blocks.size).to_a.zip @blocks.map{|block| block.EspChar.ESP3.EP2}]} ,{name: 'EP3', data:Hash[(0..@blocks.size).to_a.zip @blocks.map{|block| block.EspChar.ESP3.EP3}]}],
+                 :library => {:title => "Есперсон Индексированный - 3", :width => "400px"} %>
 
 </p>
