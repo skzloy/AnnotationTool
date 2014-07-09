@@ -12,8 +12,10 @@
     <% end %>
   </p>
 
+
   <%= column_chart @blocks_by_word_count_divided_by_sign_count,
                    :library => {:title => "Кол-во слов разделенное на кол-во знаков", :width => "400px"} %>
+
 
 <table border="1">
   <caption>Есперсон - 6</caption>
@@ -69,6 +71,8 @@
 
 </table>
 
+
+
 <table border="1">
   <caption>Есперсон - 3</caption>
   <tr>
@@ -80,6 +84,7 @@
     <th>ESP3_P - 1</th>
     <th>ESP3_P - 2</th>
     <th>ESP3_P - 3</th>
+    <th>Group ID</th>
   </tr>
 
   <% @blocks.each do |block| %>
@@ -93,12 +98,39 @@
         <td><%= block.EspChar.ESP3.EP1 %></td>
         <td><%= block.EspChar.ESP3.EP2 %></td>
         <td><%= block.EspChar.ESP3.EP3 %></td>
+        <td><%= block.EspChar.ESP3.GroupID %></td>
       </tr>
 
   <% end %>
 
 </table>
 
+<% @blocks.each do |block| %>
+    <%= block.EspChar.ESP3.GroupID %>
+<% end %>
+
+<table border="1">
+  <caption>Повторы</caption>
+  <tr>
+    <th>Подстрока</th>
+    <th>Длина</th>
+    <th>Кол-во повторов</th>
+    <th>Начала блоков</th>
+  </tr>
+
+  <% @stringMatches.each do |match| %>
+
+      <tr>
+        <td><%= match.Substring %></td>
+        <td><%= match.Lenght %></td>
+        <td><%= match.MatchingCount %></td>
+        <td><%= match.StartBlocksID.join(',') %></td>
+
+      </tr>
+
+  <% end %>
+
+</table>
 
 <%= column_chart [{name: 'E1', data:Hash[(0..@blocks.size).to_a.zip @blocks.map{|block| block.EspChar.ESP3.E1}]} ,{name: 'E2', data:Hash[(0..@blocks.size).to_a.zip @blocks.map{|block| block.EspChar.ESP3.E2}]} ,{name: 'E3', data:Hash[(0..@blocks.size).to_a.zip @blocks.map{|block| block.EspChar.ESP3.E3}]}],
     :library => {:title => "Есперсон - 3", :width => "400px"} %>
