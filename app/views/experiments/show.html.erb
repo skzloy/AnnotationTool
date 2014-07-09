@@ -132,10 +132,10 @@
 
 </table>
 
-<%= column_chart [{name: 'E1', data:Hash[(0..@blocks.size).to_a.zip @blocks.map{|block| block.EspChar.ESP3.E1}]} ,{name: 'E2', data:Hash[(0..@blocks.size).to_a.zip @blocks.map{|block| block.EspChar.ESP3.E2}]} ,{name: 'E3', data:Hash[(0..@blocks.size).to_a.zip @blocks.map{|block| block.EspChar.ESP3.E3}]}],
-    :library => {:title => "Есперсон - 3", :width => "400px"} %>
+<%= line_chart [{name: 'E1', data:Hash[(1..@blocks.size).to_a.zip @blocks.map{|block| block.EspChar.ESP3.E1}]} ,{name: 'E2', data:Hash[(1..@blocks.size).to_a.zip @blocks.map{|block| block.EspChar.ESP3.E2}]} ,{name: 'E3', data:Hash[(1..@blocks.size).to_a.zip @blocks.map{|block| block.EspChar.ESP3.E3}]}],
+    :library => {:title => "Есперсон - 3", :width => "400px"} , discrete: true%>
 
-<%= column_chart [{name: 'EP1', data:Hash[(0..@blocks.size).to_a.zip @blocks.map{|block| block.EspChar.ESP3.EP1}]} ,{name: 'EP2', data:Hash[(0..@blocks.size).to_a.zip @blocks.map{|block| block.EspChar.ESP3.EP2}]} ,{name: 'EP3', data:Hash[(0..@blocks.size).to_a.zip @blocks.map{|block| block.EspChar.ESP3.EP3}]}],
-                 :library => {:title => "Есперсон Индексированный - 3", :width => "400px"} %>
+<%= line_chart [{name: 'EP1', data:Hash[(1..@blocks.size).to_a.zip @blocks.map{|block| block.EspChar.ESP3.EP1}]} ,{name: 'EP2', data:Hash[(1..@blocks.size).to_a.zip @blocks.map{|block| block.EspChar.ESP3.EP2}]} ,{name: 'EP3', data:Hash[(1..@blocks.size).to_a.zip @blocks.map{|block| block.EspChar.ESP3.EP3}]}],
+                 :library => {:title => "Есперсон Индексированный - 3", :width => "400px"} , discrete: true %>
 
 </p>

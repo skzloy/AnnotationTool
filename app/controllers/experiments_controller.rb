@@ -34,7 +34,7 @@ class ExperimentsController < ApplicationController
    word_count = get_word_count_by_blocks(@blocks)
    sign_count = get_sign_count_by_blocks(@blocks)
    word_count_divided_by_sign_count = word_count.zip(sign_count).map {|a| a.inject(1.0, :/)}
-   @blocks_by_word_count_divided_by_sign_count = Hash[(0..@blocks.size).to_a.zip word_count_divided_by_sign_count]
+   @blocks_by_word_count_divided_by_sign_count = Hash[(1..@blocks.size).to_a.zip word_count_divided_by_sign_count]
    @stringMatches = MatchesFinder.FindMatchesSubstring(@blocks.map{|block| block.EspChar.ESP3.GroupID}.join(''))
  end
 
